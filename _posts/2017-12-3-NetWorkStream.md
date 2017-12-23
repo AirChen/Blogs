@@ -3,7 +3,7 @@ layout: post
 title:  "一种支持多线程并发读写的数据模型"
 subtitle: "在实际的开发中，常常会遇到这种场景，一个模块产生数据，另外一个模块处理数据。无论是为了模块间的解耦或者是并发处理。"
 date:   2017-12-3 22:15:13 -0400
-background: '/img/posts/04.jpg'
+background: '/img/posts/05.jpg'
 ---
 
 在实际的开发中，常常会遇到这种场景，一个模块产生数据，另外一个模块处理数据。无论是为了模块间的解耦或者是并发处理，我们都会在生成和处理数据的模块之间放置缓存区，作为生成与处理之间的数据仓库。这类模型就是生产者与消费者模型。
@@ -21,7 +21,7 @@ background: '/img/posts/04.jpg'
 
 该数据仓库的主体以一个可变数组组成，数组中的每个元素为一定长的二进制数据NSData，通过读标志位和写标志位，记录该结构体类数据的读写状态，当数据被读出，且正好凑出整数个NSData，则将这些NSData的内存进行释放，更新读写标志位。
 
-![](/img1/struct.JPG){:height="50%" width="50%" align="center"}
+![](/Blogs/img1/struct.jpg){:width="70%" height="70%" align="center"}
 
 这里起关键性作用的是记录读写状态的读写标志位，它们分为readIndex、readInnerIndex、writeIndex和writeInnerIndex，刚开始数据仓库中没有数据时，各个状态为赋值为-1。当开始写入数据，该数据结构会根据写入数据的长度计算出一个结束的位置，然后在结束为与当前的writeIndex和writeInnerIndex之间，写入数据。最后用结束位更新写标志位。
 

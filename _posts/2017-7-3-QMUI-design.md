@@ -3,14 +3,17 @@ layout: post
 title:  "QMUI iOS设计原理分析"
 subtitle: "QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平台正在努力更新中。本文针对iOS平台1.3.6版本的实现进行分析。"
 date:   2017-7-3 16:21:13 -0400
-background: '/img/posts/04.jpg'
+background: '/img/posts/02.jpg'
 ---
 
-###引入
+### 引入
+
 QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平台正在努力更新中。
 
 本文针对iOS平台1.3.6版本的实现进行分析。QMUI iOS的当前版本为1.7.2，其设计目的是用于辅助快速搭建一个具备基本设计还原效果的iOS项目，同时利用自身提供的丰富控件及兼容处理，让开发者能专注于业务需求而无需耗费精力在基础代码的设计上。不管是新项目的创建，或是已有项目的维护，均可使开发效率和项目质量得到大幅度提升。
-###示例
+
+### 示例
+
 进入项目的示例demo，找到程序的入口AppDelegate，其主功能模块为：
 
 ```
@@ -45,9 +48,10 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 ```
 
 这里面主要包括了QMUIConfigurationTemplate、QMUIConfigurationManager、QDCommonUI、QMUIHelper、QMUIQQEmotionManager几个类，在程序启动之前需要先对它们进行初始化。
-###QMUIConfigurationTemplate
-进入
-[QMUIConfigurationTemplate setupConfigurationTemplate]函数的实现，我们发现整个实现是在对QMUICMI这个宏进行一些函数调用和参赛修改。查看一下QMUICMI的定义
+
+### QMUIConfigurationTemplate
+
+进入[QMUIConfigurationTemplate setupConfigurationTemplate]函数的实现，我们发现整个实现是在对QMUICMI这个宏进行一些函数调用和参赛修改。查看一下QMUICMI的定义
 
 ```
 #define QMUICMI [QMUIConfigurationManager sharedInstance]
@@ -111,7 +115,8 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 
 总结一下，QMUIConfigurationTemplate是一个对QMUIConfigurationManager进行初始化和修改的类，QMUIConfigurationManager中保存着许多属性，可能在程序中会被调用。
 
-###QMUIConfigurationManager
+### QMUIConfigurationManager
+
 由前面部分，我们可以对QMUIConfigurationManager的功能有个初步的认识，进入QMUIConfiguration.h文件，我们可以找到与QMUIConfigurationManager属性相关的宏定义。
 
 ```
@@ -185,7 +190,8 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 
 总结一下，QMUIConfigurationManager这个类，即有保存属性状态的功能，又有初始化app中UI组建的功能。与QMUIConfigurationTemplate相结合，可以知道用QMUIConfigurationTemplate可以进行更多的个性化定制，而QMUIConfigurationManager做更多的统一化处理，于是工程中也把QMUIConfigurationManager放置于框架类作为功能模块使用，而QMUIConfigurationTemplate则作为模版放置在工程中。
 
-###其他
+### 其他
+
 QDCommonUI是一个对子类化的UI组件进行全局统一配置的类，在示例中留出了一些接口，关于在QMUI中如何进行子类化将在下次分享中进行讨论。
 
 QMUIHelper是一个工具类，在它的UIApplication分类中有四个函数接口可以设置不同的状态栏风格：

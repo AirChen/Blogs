@@ -1,14 +1,12 @@
 title:             AirChen's Blog
 email:             renzhichen2012@163.com
-description:       ...
+description:       读书以训诂为本,诗文以声调为本
 author:            AirChen
 baseurl:     "/Blogs"
 url:         "https://airchen.github.io"
 
 # Social Profiles
-twitter_username:  SBootstrap
 github_username:   AirChen
-facebook_username: StartBootstrap
 
 # Build settings
 markdown:          kramdown
