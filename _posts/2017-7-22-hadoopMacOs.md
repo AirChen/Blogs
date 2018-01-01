@@ -99,8 +99,8 @@ cat id_rsa.pub >> authorized_keys
 ```
 最后，在MacOs下，需要在设置里面打开远程登录权限，进入系统偏好设置 >> 共享 >> 远程登录。将其设置为开启就可以了。
 
-![系统偏好设置](/Blogs/imgs/setting.png)
-![共享](/Blogs/imgs/share.png)
+![系统偏好设置](/imgs/setting.png)
+![共享](/imgs/share.png)
 
 通过命令行运行：
 

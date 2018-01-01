@@ -11,12 +11,12 @@ background: '/img/posts/01.jpg'
 
 以下是一些实例：
 
-![](/Blogs/img1/1.png)
-![](/Blogs/img1/2.png)
+![](/img1/1.png)
+![](/img1/2.png)
 
-   ![](/Blogs/img1/demo.gif)
+![](/img1/demo.gif)
 
-![](/Blogs/img1/demo1.gif)
+![](/img1/demo1.gif)
 
 可见借助于UICollectionViewFlowLayout可以让UICollectionView展示丰富的界面效果。
 

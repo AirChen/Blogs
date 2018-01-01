@@ -24,17 +24,17 @@ operations, and the dynamic nature of the Objective-C runtime.
 
 支持用CocoaPods和Carthage部署到项目中，当前的系统要求如下：
 
-[](required.png)
+![](/img1/required.png)
 
 在设计中，CocoaLumberjack使用了大量的GCD语法，使性能更好；宏定义的使用，让API接口语法更加简便；加上整体架构的设计独特，使这套第三方日志系统更利于根据一些特殊需求来定制功能。
 
-代码分析
+### 代码分析
 
 使用CocoaLumberjack的时候，会引用其头文件，Oc的项目引用CocoaLumberjack.h，swift项目CocoaLumberjack.swift。
 
 这里，我们从CocoaLumberjack.h展开，文件开头给出了大段的注释信息，详细介绍了关于该日志系统的使用(在该源码的其他头文件中，同样可以看到消息的注释信息，对该接口甚至类的设计进行解说，可见一套优秀的开源项目在细节上是做的多么细致，值得学习！)，随后，引入了一系列的头文件：
 
-[](import.png)
+![](/img1/import.png)
 
 `DDLog`是该日志系统中核心的部分，接口调用都通过该类进行调用，在该类中封装了许多的协议和基础类，也算是作为整个日志系统的执行中枢，给整套架构打下基础。
 
@@ -78,11 +78,13 @@ operations, and the dynamic nature of the Objective-C runtime.
 
 CocoaLumberjack的架构关系如下图：
 
-[]()
+![](/img1/CocoaLumberjackClassDiagram.png)
 
 ### 对比实验
 
 苹果官方在2016年的WWDC上放出了新的日志系统([The unified logging system](https://developer.apple.com/documentation/os/logging?language=objc))，提供了日志信息分类统计和关键信息捕捉等功能，而且在速度上会更快、使用更方便、提供给开发者的可控性也更多。
+
+![](/img1/features.png)
 
 这里对`NSLog`、`printf`、`os_log`和`writev`在命令行的输出性能进行了对比：
 
@@ -119,8 +121,13 @@ CocoaLumberjack的架构关系如下图：
 ```
 
 Mac电脑上的运行时间：
+![](/img1/speed01.png)
+
 虚拟机运行时间：
+![](/img1/speed02.png)
+
 真机运行时间：
+![](/img1/speed03.png)
 
 通过对比可知，采用writev和printf这种底层的命令行输出效率最高。
 
@@ -131,6 +138,8 @@ Mac电脑上的运行时间：
 
 参考：
 [NSLog效率低下的原因及尝试lldb断点打印Log](http://blog.sunnyxx.com/2014/04/22/objc_dig_nslog/)
+
 [WWDC2016 session721]( [https://developer.apple.com/videos/play/wwdc2016/721/](https://developer.apple.com/videos/play/wwdc2016/721/)
 )
+
 [Logging](https://developer.apple.com/documentation/os/logging?language=objc)
