@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "QMUI iOS设计原理分析"
-subtitle: "QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平台正在努力更新中。本文针对iOS平台1.3.6版本的实现进行分析。"
+subtitle: "QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平台正在努力更新中..."
 date:   2017-7-3 16:21:13 -0400
 background: '/img/posts/02.jpg'
 ---
