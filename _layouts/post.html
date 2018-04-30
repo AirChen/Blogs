@@ -35,28 +35,24 @@ comments: true
 
       <hr>
 
-      <div id="disqus_thread"></div>
-      <script>
-      (function() { // DON'T EDIT BELOW THIS LINE
-                  var d = document, s = d.createElement('script');
-                  s.src = 'https://https-airchen-github-io-blogs.disqus.com/embed.js';
-                  s.setAttribute('data-timestamp', +new Date());
-                  (d.head || d.body).appendChild(s);
-                  })();
-      </script>
-      <script id="dsq-count-scr" src="//https-airchen-github-io-blogs.disqus.com/count.js" async></script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <!-- 来必力City版安装代码 -->
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjEzMi8xMjY2Nw==">
+      	<script type="text/javascript">
+         (function(d, s) {
+             var j, e = d.getElementsByTagName(s)[0];
 
-      <div class="clearfix">
+             if (typeof LivereTower === 'function') { return; }
 
-        {% if page.previous.url %}
-        <a class="btn btn-primary float-left" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline"> Post</span></a>
-        {% endif %}
-        {% if page.next.url %}
-        <a class="btn btn-primary float-right" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline"> Post</span> &rarr;</a>
-        {% endif %}
+             j = d.createElement(s);
+             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+             j.async = true;
 
+             e.parentNode.insertBefore(j, e);
+         })(document, 'script');
+      	</script>
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
       </div>
+      <!-- City版安装代码已完成 -->
 
     </div>
   </div>
