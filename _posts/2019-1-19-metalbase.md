@@ -51,9 +51,9 @@ delegate 具备了 MTKViewDelegate ，其提供 mtkView:drawableSizeWillChange: 
 
         renderEncoder.label = @"MyRenderEncoder";
 
-			/*
-				这里写入绘制相关
-			*/
+    /*
+        这里写入绘制相关
+    */
 
         [renderEncoder endEncoding];
 
@@ -80,9 +80,9 @@ delegate 具备了 MTKViewDelegate ，其提供 mtkView:drawableSizeWillChange: 
 
     id<MTLComputeCommandEncoder> computeEncoder = [commandBuffer computeCommandEncoder];
 
- 	 /*
- 	 	并行计算相关
- 	 */   
+    /*
+    并行计算相关
+    */   
 
     [computeEncoder endEncoding];
     
@@ -95,7 +95,7 @@ delegate 具备了 MTKViewDelegate ，其提供 mtkView:drawableSizeWillChange: 
 }
 ```
 
-####绘制一个三角形
+### 绘制一个三角形
 
 绘制管线是 GPU 处理图像渲染的一步步流程，如图所示：
 
