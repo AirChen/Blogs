@@ -95,6 +95,7 @@ delegate 具备了 MTKViewDelegate ，其提供 mtkView:drawableSizeWillChange: 
 }
 ```
 
+
 ### 绘制一个三角形
 
 绘制管线是 GPU 处理图像渲染的一步步流程，如图所示：
@@ -166,3 +167,10 @@ _vertices = [_device newBufferWithBytes:quadVertices
 ```
 
 之后使用 Encoder 的 setVertexBuffer: 方法可将 MTLBuffer 对象传给顶点着色器（Vertex function），运行绘制管线。
+
+最终的绘制的三角形如图：
+
+![三角形](/imgs/metalbase/produce.png){:width="100%" align="center"}
+
+#### 参考
+[Metal 文档](https://developer.apple.com/documentation/metal)
