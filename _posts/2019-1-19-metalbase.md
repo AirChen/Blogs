@@ -3,7 +3,7 @@ layout: post
 title:  "Metal 基础实践"
 subtitle: "Metal 提供了和 GPU 的底层交互，让开发者可以使自己的iOS、macOS、tvOS应用表现出最佳的图形和运算处理性能。"
 date:   2019-1-20 12:15:03 -0400
-background: '/img/posts/metal.jpg'
+background: '/assets/img/head/metal.jpg'
 ---
 
 ### 简介

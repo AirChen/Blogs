@@ -3,7 +3,7 @@ layout: post
 title:  "MacOS下Hadoop环境搭建"
 subtitle: "本文介绍了在MacOS操作系统下进行Hadoop环境配置的知识..."
 date:   2017-7-22 19:21:13 -0400
-background: '/img/posts/03.jpg'
+background: '/assets/img/head/03.jpg'
 ---
 
 ### 安装
@@ -100,8 +100,8 @@ cat id_rsa.pub >> authorized_keys
 ```
 最后，在MacOs下，需要在设置里面打开远程登录权限，进入系统偏好设置 >> 共享 >> 远程登录。将其设置为开启就可以了。
 
-![系统偏好设置](/imgs/setting.png)
-![共享](/imgs/share.png)
+![系统偏好设置](/imgs/hadoop/setting.png)
+![共享](/imgs/hadoop/share.png)
 
 通过命令行运行：
 

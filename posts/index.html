@@ -2,7 +2,7 @@
 layout: page
 title: Posts
 description: 以最放松的心态对待一切艰难
-background: '/img/hard.png'
+background: '/assets/img/hard.png'
 ---
 
 {% for post in paginator.posts %}
@@ -22,10 +22,9 @@ background: '/img/hard.png'
       {% else %}
         {{ site.author }}
       {% endif %}
-      on {{ post.date | date: '%B %d, %Y' }}</p>
+      on {{ post.date | date: '%B %d, %Y' }}
+    </p>
   </article>
-
-  <hr>
 
 {% endfor %}
 

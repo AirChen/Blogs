@@ -3,7 +3,7 @@ layout: post
 title:  "UICollectionViewFlowLayout相关"
 subtitle: "子类化UICollectionViewFlowLayout可以让UICollectionView实现许多精彩的布局，在实际的项目中子类化UICollectionViewFlowLayout得到了广泛的应用..."
 date:   2017-2-5 11:47:13 -0400
-background: '/img/posts/01.jpg'
+background: '/assets/img/head/01.jpg'
 ---
 
 子类化UICollectionViewFlowLayout可以让UICollectionView实现许多精彩的布局，在实际的项目中子类化UICollectionViewFlowLayout得到了广泛的应用。
@@ -11,12 +11,12 @@ background: '/img/posts/01.jpg'
 
 以下是一些实例：
 
-![](/img1/1.png)
-![](/img1/2.png)
+![](/imgs/flowlayout/1.png)
+![](/imgs/flowlayout/2.png)
 
-![](/img1/demo.gif)
+![](/imgs/flowlayout/demo.gif)
 
-![](/img1/demo1.gif)
+![](/imgs/flowlayout/demo1.gif)
 
 可见借助于UICollectionViewFlowLayout可以让UICollectionView展示丰富的界面效果。
 

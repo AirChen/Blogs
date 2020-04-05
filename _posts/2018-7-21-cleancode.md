@@ -3,7 +3,7 @@ layout: post
 title:  "浅谈代码优化"
 subtitle: "程序员代码质量的提高，是一个循序渐进的过程，并不是参考一本书上的编程样式就能马上适应。要在平时的编程中多去实践，提升自己的水平。"
 date:   2018-7-21 22:15:13 -0400
-background: '/img/posts/code.jpeg'
+background: '/assets/img/head/code.jpeg'
 ---
 
 文章结构

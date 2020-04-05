@@ -3,7 +3,7 @@ layout: post
 title:  "iOS GCD知识点总结"
 subtitle: "GCD(Grand Central Dispatch)是苹果从OS X Snow Leopard 和 iOS4 开始引入的一套多线程开发的API，它是基于C语言的实现..."
 date:   2018-1-7 22:15:13 -0400
-background: '/img/posts/07.jpg'
+background: '/assets/img/head/07.jpg'
 ---
 
 ### 引入
@@ -18,8 +18,8 @@ GCD(Grand Central Dispatch)是苹果从OS X Snow Leopard 和 iOS4 开始引入�
 
 1. 多线程把原本顺序执行的程序变成了多个流程来执行，各个流程之间的切换会有性能消耗，但在GCD的时候，永远不用关注这些底层的事情。
 
-![](/img1/serial.jpg)
-![](/img1/bing.jpg)
+![](/imgs/gcd/serial.jpg)
+![](/imgs/gcd/bing.jpg)
 
 2. 苹果爸爸说的那句话是追加，并不是执行，所以在需要考虑执行效率的地方使用GCD接口，一定要记住是追加，追加后并不一定是立刻就执行！！！
 
@@ -27,7 +27,7 @@ GCD(Grand Central Dispatch)是苹果从OS X Snow Leopard 和 iOS4 开始引入�
 
 4. Dispatch Queue分为两类，串行队列和并行队列，都是按照追加顺序执行，但一个串行队列总在一个线程中执行，会有等待，并行队列会发起多线程并发执行，没有等待。
 
-![](/img1/dispatch_queue.jpg)
+![](/imgs/gcd/dispatch_queue.jpg)
 
 5. Dispatch Queue可以通过`dispatch_queue_create`来创建，也可以从系统中来获取，系统提供了两类队列：Main Dispatch Queue 和 Global Dispatch Queue,其中Main Dispatch Queue是串行队列，Global Dispatch Queue是并行队列，同时提供四个执行等级。
 

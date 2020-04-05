@@ -3,7 +3,7 @@ layout: post
 title:  "深入CocoaLumberjack日志系统"
 subtitle: "在iOS开发中，日志系统是很重要的一个部分，尤其是在修复代码中的bug，通常会用NSLog来将这些信息打印到XCode控制台中显示，但在日志信息较多的时候..."
 date:   2018-1-1 22:15:13 -0400
-background: '/img/posts/06.jpg'
+background: '/assets/img/head/06.jpg'
 ---
 
 ### 引入
@@ -84,7 +84,7 @@ CocoaLumberjack的架构关系如下图：
 
 苹果官方在2016年的WWDC上放出了新的日志系统([The unified logging system](https://developer.apple.com/documentation/os/logging?language=objc))，提供了日志信息分类统计和关键信息捕捉等功能，而且在速度上会更快、使用更方便、提供给开发者的可控性也更多。
 
-![](/img1/features.png)
+![](/img1/featurelog.png)
 
 这里对`NSLog`、`printf`、`os_log`和`writev`在命令行的输出性能进行了对比：
 

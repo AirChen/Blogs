@@ -27,7 +27,9 @@ layout: default
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        {{ content }}
+        <article class="article-content markdown-body">
+          {{ content }}
+        </article>
 
         <!-- Home Post List -->
         {% for post in site.posts limit : 5 %}
@@ -50,8 +52,6 @@ layout: default
               on
               {{ post.date | date: '%B %d, %Y' }}</p>
           </article>
-
-          <hr>
 
         {% endfor %}
 
