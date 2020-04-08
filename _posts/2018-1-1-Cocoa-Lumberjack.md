@@ -50,7 +50,7 @@ operations, and the dynamic nature of the Objective-C runtime.
 
 再`DDLog`中，定义了创建logger需要的一些接口和基础类，`DDLogger`和`DDLogFormatter`是两个协议，`DDLogger`是创建的logger必须遵循的协议，内部的定义如下：
 
-```
+{% highlight objc %}
 - (void)logMessage:(DDLogMessage *)logMessage NS_SWIFT_NAME(log(message:));
 
 @property (nonatomic, strong) id <DDLogFormatter> logFormatter;
@@ -68,7 +68,7 @@ operations, and the dynamic nature of the Objective-C runtime.
 @property (nonatomic, DISPATCH_QUEUE_REFERENCE_TYPE, readonly) dispatch_queue_t loggerQueue;
 
 @property (nonatomic, readonly) NSString *loggerName;
-```
+{% endhighlight %}
 
 其中`logMessage`是用来被调用执行log的接口，在`DDLog`中被调用;`logFormatter`是一个遵循`DDLogFormatter`协议的类，主要用来控制log的格式(控制台输出或者存入文件);接下来的did和will开头的接口为事件响应，可以选择去实现在相应事件发生时候的处理；`flush`是在一些关系内存和io操作需要实现的类，它可以控制在内存不足的时候将buffer存入磁盘或者相关的数据库；最后`loggerQueue`和`loggerName`用来获取在logger中维持的线程队列，`loggerName`是用来创建队列用的名字，在`DDAbstractLogger`中可以看到logger线程队列是如何维持的。
 
@@ -88,7 +88,7 @@ CocoaLumberjack的架构关系如下图：
 
 这里对`NSLog`、`printf`、`os_log`和`writev`在命令行的输出性能进行了对比：
 
-```
+{% highlight objc %}
 	CFAbsoluteTime startNSLog = CFAbsoluteTimeGetCurrent();
     for (int i = 0; i < 10000; i++) {
         NSLog(@"%d", i);
@@ -118,7 +118,7 @@ CocoaLumberjack的架构关系如下图：
 
     NSLog(@"NSLog time: %lf, printf time: %lf", endNSLog - startNSLog, endPrintf - startPrintf);
     NSLog(@"OsLog time: %lf, writev time: %lf", endOsLog - startOsLog, endWritev - startWritev);
-```
+{% endhighlight %}
 
 Mac电脑上的运行时间：
 ![](/img1/speed01.png)

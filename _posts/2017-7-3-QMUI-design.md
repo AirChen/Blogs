@@ -16,7 +16,7 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 
 进入项目的示例demo，找到程序的入口AppDelegate，其主功能模块为：
 
-```
+{% highlight objc %}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // 启动QMUI的配置模板  先加载一个默认的模版，在QMUIConfigurationTemplate里面可以对需要调整的参数做调整
@@ -45,7 +45,7 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 
     return YES;
 }
-```
+{% endhighlight %}
 
 这里面主要包括了QMUIConfigurationTemplate、QMUIConfigurationManager、QDCommonUI、QMUIHelper、QMUIQQEmotionManager几个类，在程序启动之前需要先对它们进行初始化。
 
@@ -53,15 +53,15 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 
 进入[QMUIConfigurationTemplate setupConfigurationTemplate]函数的实现，我们发现整个实现是在对QMUICMI这个宏进行一些函数调用和参赛修改。查看一下QMUICMI的定义
 
-```
+{% highlight objc %}
 #define QMUICMI [QMUIConfigurationManager sharedInstance]
-```
+{% endhighlight %}
 
 发现它是QMUIConfigurationManager的一个单例。
 
 再回到[QMUIConfigurationTemplate setupConfigurationTemplate]函数的实现，我们发现函数中先调用了QMUIConfigurationManager单例中的initDefaultConfiguration方法，该方法的大致实现如下：
 
-```
+{% highlight objc %}
 - (void)initDefaultConfiguration {
 
     #pragma mark - Global Color
@@ -74,11 +74,11 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
     ...
     ...
 }
-```
+{% endhighlight %}
 
 在QMUIConfigurationManager中同时有这么些属性：
 
-```
+{% highlight objc %}
 #pragma mark - Global Color
 
 @property(nonatomic, strong) UIColor         *clearColor;
@@ -109,7 +109,7 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 @property(nonatomic, strong) UIFont          *segmentFontSize;
 ...
 ...
-```
+{% endhighlight %}
 
 由此可知QMUIConfigurationManager单例中的initDefaultConfiguration方法是用来对QMUIConfigurationManager的属性进行初始化工作，完成这步后，在[QMUIConfigurationTemplate setupConfigurationTemplate]函数的接下来部分可以对一些参赛选择性的修改。
 
@@ -119,7 +119,7 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 
 由前面部分，我们可以对QMUIConfigurationManager的功能有个初步的认识，进入QMUIConfiguration.h文件，我们可以找到与QMUIConfigurationManager属性相关的宏定义。
 
-```
+{% highlight objc %}
 #define QMUICMI [QMUIConfigurationManager sharedInstance]
 
 
@@ -146,13 +146,13 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
 ...
 ...
 
-```
+{% endhighlight %}
 
 在QMUIConfiguration.h中，QMUIConfigurationManager的所有属性都被宏定义了一遍。
 
 在AppDelegate中还调用了[QMUIConfigurationManager renderGlobalAppearances]，其实现如下：
 
-```
+{% highlight objc %}
 + (void)renderGlobalAppearances {
 
     // QMUIButton
@@ -184,7 +184,7 @@ QMUI是腾讯开源的一套UI框架，目前支持Web和iOS平台，Android平�
     [tabBarItemAppearance setTitleTextAttributes:@{NSForegroundColorAttributeName:TabBarItemTitleColorSelected} forState:UIControlStateSelected];
 }
 
-```
+{% endhighlight %}
 
 这里面主要功能函数有+ (instancetype)appearance 和+ (instancetype)appearanceWhenContainedIn:函数，它们是属于UIAppearance协议中的函数，每个遵循了UIAppearance的UI组件都可以调用这两个方法，来对app中被调用时进行统一初始化。由此可知[QMUIConfigurationManager renderGlobalAppearances]函数的调用是用来对app中的组件进行全局的初始化。
 
@@ -196,7 +196,7 @@ QDCommonUI是一个对子类化的UI组件进行全局统一配置的类，在�
 
 QMUIHelper是一个工具类，在它的UIApplication分类中有四个函数接口可以设置不同的状态栏风格：
 
-```
+{% highlight objc %}
 /**
  * 更改状态栏内容颜色为深色
  *
@@ -220,7 +220,7 @@ QMUIHelper是一个工具类，在它的UIApplication分类中有四个函数接
  * 恢复对App的主要window的置灰操作，与`dimmedApplicationWindow`成对调用
  */
 + (void)resetDimmedApplicationWindow;
-```
+{% endhighlight %}
 QMUIQQEmotionManager是一个为输入框添加QQ表情的工具类，需要配合其他几个类共同使用。在AppDelegate，我们用异步的方式调用[QMUIQQEmotionManager emotionsForQQ]函数，此函数的作用是将文件目录下的图片添加到一个数组中去，操作比较耗时，所以安排在程序一启动就进行加载，并采用异步方式不阻塞主线程。
 
 

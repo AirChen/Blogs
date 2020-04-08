@@ -15,7 +15,7 @@ background: '/assets/img/head/code.jpeg'
 ### 实例
 首先引入一个代码优化的实例，请参读以下代码：
 
-```
+{% highlight objc %}
 - (void)sdkAuthSetServerUrlBase:(NSString *)url isAuthTest:(NSNumber *)test {
 	if (test.boolValue) {
 		_isSDKAuthTest = test.boolValue;
@@ -31,12 +31,12 @@ background: '/assets/img/head/code.jpeg'
 		_isSDKAuthTest = test.boolValue;
 	}
 }
-```
+{% endhighlight %}
 代码格式整齐，变量和函数名命名规范，可以从第一眼看下去，能难理清楚其中的逻辑。该函数是一个供内部测试使用的接口，有两个标准位进行控制。
 
 首先可以把函数的大致逻辑理清楚一下，其主要功能应该是设置sdkAuth的url，于是先把设置url的功能单独拿出来一下，这是在url存在而且有效的时候进行设置，于是函数可以调整为如下：
 
-```
+{% highlight objc %}
 - (void)sdkAuthSetServerUrlBase:(NSString *)url isAuthTest:(NSNumber *)test {
 	if (test.boolValue) {
 		[self setServerUrlBase:url];
@@ -54,7 +54,7 @@ background: '/assets/img/head/code.jpeg'
 	}
 }
 
-```
+{% endhighlight %}
 再审视我们的代码，视乎关系变得清楚了一些，但其控制逻辑可以再优化一下，我从满足什么条件的情况下设置url这个角度进行分析。
 
 | test.boolValue | _isSDKAuthTest | setServerUrlBase |
@@ -66,14 +66,14 @@ background: '/assets/img/head/code.jpeg'
 
 从组合情况来看，只有当 test.boolValue 为 false ，_isSDKAuthTest 为 true 的情况下，会不调用 setServerUrlBase 接口，即：
 
-```
+{% highlight objc %}
 if(!test.boolValue && _isSDKAuthTest)
-```
+{% endhighlight %}
 
 的情况下，不设置。
 最终调整版本为：
 
-```
+{% highlight objc %}
 - (void)sdkAuthSetServerUrlBase:(NSString *)url isAuthTest:(NSNumber *)test {
 	BOOL obsoleteStatus = (!test.boolValue && _isSDKAuthTest);
 	if (!obsoleteStatus) {
@@ -87,7 +87,7 @@ if(!test.boolValue && _isSDKAuthTest)
 		SdkAuth_setServerUrlBase([url cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 }
-```
+{% endhighlight %}
 
 ### 引经据典
 

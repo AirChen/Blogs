@@ -39,7 +39,7 @@ GCD(Grand Central Dispatch)是苹果从OS X Snow Leopard 和 iOS4 开始引入�
 
 9. `dispatch_walltime`可用来创建绝对时间`dispatch_time_t`，相比`dispatch_time`创建的相对时间，绝对时间可用来做定时器。`dispatch_time_t`可用于`dispatch_delay` 和 `dispatch_group_wait`函数。
 
-```
+{% highlight objc %}
 dispatch_time_t getDispatchTimeByDate(NSDate *date)
 {
     NSTimeInterval interval;
@@ -55,7 +55,7 @@ dispatch_time_t getDispatchTimeByDate(NSDate *date)
 
     return milestone;
 }
-```
+{% endhighlight %}
 
 
 ### Some Special Ways

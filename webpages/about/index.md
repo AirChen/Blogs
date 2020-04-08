@@ -3,6 +3,7 @@ layout: page
 title: About Me
 description: 以最放松的心态对待一切艰难
 background: '/assets/img/me.jpg'
+permalink: '/about.html'
 ---
 
 ## 个人信息
@@ -35,4 +36,3 @@ background: '/assets/img/me.jpg'
 
 <a class="nav-link" href="https://github.com/AirChen">Github</a>
 <a class="nav-link" href="{{"/resume/个人简历.pdf" | relative_url }}">简历</a>
-
