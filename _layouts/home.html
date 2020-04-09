@@ -1,65 +1,108 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+  {% include home_head.html %}
+  <body>
+    {% include home_navbar.html %}
 
-<!-- Page Header -->
-{% if page.background %}
-  <header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
-  {% else %}
-    <header class="masthead">
-    {% endif %}
-    <div class="overlay"></div>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            <h1>{{ site.title }}</h1>
-            {% if site.description %}
-              <span class="subheading">{{ site.description }}</span>
-            {% endif %}
-          </div>
-        </div>
+
+      <div class="blog-header">
+        <h1 class="blog-title">{{ site.title }}</h1>
+        {% if site.description %}
+        <p class="lead blog-description">{{ site.description }}</p>
+        {% endif %}
       </div>
-    </div>
-  </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="row">
 
-        <article class="article-content markdown-body">
-          {{ content }}
-        </article>
+        <div class="col-sm-8 blog-main">
 
-        <!-- Home Post List -->
+          <!-- Home Post List -->
         {% for post in site.posts limit : 5 %}
 
-          <article class="post-preview">
-            <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-              <h2 class="post-title">{{ post.title }}</h2>
-              {% if post.subtitle %}
-                <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-              {% else %}
-                <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-              {% endif %}
-            </a>
-            <p class="post-meta">Posted by
-              {% if post.author %}
-                {{ post.author }}
-              {% else %}
-                {{ site.author }}
-              {% endif %}
-              on
-              {{ post.date | date: '%B %d, %Y' }}</p>
-          </article>
-
-        {% endfor %}
-
-        <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+        <div class="blog-post">
+          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+            <h2 class="blog-post-title">{{ post.title }}</h2>
+            {% if post.subtitle %}
+              <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+              <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+            {% endif %}
+          </a>
+          <p class="blog-post-meta">Posted by
+            {% if post.author %}
+              {{ post.author }}
+            {% else %}
+              {{ site.author }}
+            {% endif %}
+            on
+            {{ post.date | date: '%B %d, %Y' }}</p>
         </div>
 
-      </div>
-    </div>
-  </div>
+        {% endfor %}
+        
+          <nav>
+            <ul class="pager">              
+              <a href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>                            
+            </ul>
+          </nav>
+
+        </div><!-- /.blog-main -->        
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">March 2014</a></li>
+              <li><a href="#">February 2014</a></li>
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="/feed.xml">Feed</a></li>
+              <li><a href="/webpages/wechat.html">WeChat</a></li>
+              <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/759949128/">LinkIn</a></li>              
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    {% include footer.html %}
+
+    <!-- <footer class="blog-footer">
+      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer> -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script>window.jQuery || document.write('<script src=href="{{"/assets/vendor/home/assets/js/vendor/jquery.min.js" | relative_url }}"><\/script>')</script>
+    <script src="{{"/assets/vendor/home/dist/js/bootstrap.min.js" | relative_url }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{"/assets/vendor/home/assets/js/ie10-viewport-bug-workaround.js" | relative_url }}"></script>
+  </body>
+</html>
