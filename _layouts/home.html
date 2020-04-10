@@ -2,16 +2,16 @@
 <html lang="en">
   {% include home_head.html %}
   <body>
-    {% include home_navbar.html %}
+    {% include fixnavi.html %}
 
     <div class="container">
 
-      <div class="blog-header">
+      <!-- <div class="blog-header">
         <h1 class="blog-title">{{ site.title }}</h1>
         {% if site.description %}
         <p class="lead blog-description">{{ site.description }}</p>
         {% endif %}
-      </div>
+      </div> -->
 
       <div class="row">
 
@@ -102,7 +102,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-    <script>window.jQuery || document.write('<script src=href="{{"/assets/vendor/home/assets/js/vendor/jquery.min.js" | relative_url }}"><\/script>')</script>
+    <!-- <script>window.jQuery || document.write('<script src=href="{{"/assets/vendor/home/assets/js/vendor/jquery.min.js" | relative_url }}"></script>')</script> -->
     <script src="{{"/assets/vendor/home/dist/js/bootstrap.min.js" | relative_url }}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{"/assets/vendor/home/assets/js/ie10-viewport-bug-workaround.js" | relative_url }}"></script>
