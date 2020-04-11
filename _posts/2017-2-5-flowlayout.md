@@ -4,6 +4,7 @@ title:  "UICollectionViewFlowLayout相关"
 subtitle: "子类化UICollectionViewFlowLayout可以让UICollectionView实现许多精彩的布局，在实际的项目中子类化UICollectionViewFlowLayout得到了广泛的应用..."
 date:   2017-2-5 11:47:13 -0400
 background: '/assets/img/head/01.jpg'
+category: iOS
 ---
 
 子类化UICollectionViewFlowLayout可以让UICollectionView实现许多精彩的布局，在实际的项目中子类化UICollectionViewFlowLayout得到了广泛的应用。

@@ -6,13 +6,6 @@
 
     <div class="container">
 
-      <!-- <div class="blog-header">
-        <h1 class="blog-title">{{ site.title }}</h1>
-        {% if site.description %}
-        <p class="lead blog-description">{{ site.description }}</p>
-        {% endif %}
-      </div> -->
-
       <div class="row">
 
         <div class="col-sm-8 blog-main">
@@ -20,13 +13,13 @@
           <!-- Home Post List -->
         {% for post in site.posts limit : 5 %}
 
-        <div class="blog-post">
+        <div class="blog-post">          
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            <h2 class="blog-post-title">{{ post.title }}</h2>
+            <h3>{{ post.title }}</h3>
             {% if post.subtitle %}
-              <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+              <h4>{{ post.subtitle }}</h4>
             {% else %}
-              <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+              <h4>{{ post.excerpt | strip_html | truncatewords: 15 }}</h4>
             {% endif %}
           </a>
           <p class="blog-post-meta">Posted by
@@ -36,7 +29,8 @@
               {{ site.author }}
             {% endif %}
             on
-            {{ post.date | date: '%B %d, %Y' }}</p>
+            {{ post.date | date: '%B %d, %Y' }}
+          </p>
         </div>
 
         {% endfor %}
@@ -50,28 +44,27 @@
         </div><!-- /.blog-main -->        
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <!-- <div class="sidebar-module sidebar-module-inset">
-            <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div> -->
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>古文</h4>
+            <p>北冥有鱼，其名为鲲。鲲之大，不知其几千里也；化而为鸟，其名为鹏。鹏之背，不知其几千里也；怒而飞，其翼若垂天之云。是鸟也，海运则将徙于南冥。南冥者，天池也。《齐谐》者，志怪者也。《谐》之言曰：“鹏之徙于南冥也，水击三千里，抟扶摇而上者九万里，去以六月息者也。”野马也，尘埃也，生物之以息相吹也。天之苍苍，其正色邪？其远而无所至极邪？其视下也，亦若是则已矣。</p>            
+          </div>
 
-          <!-- <div class="sidebar-module">
-            <h4>Archives</h4>
+          <div class="sidebar-module">
+            <h4>分类</h4>
             <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-              <li><a href="#">February 2014</a></li>
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
+              {% for category in site.categories %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ category | first }} ( {{ category | last | size }} )
+                <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                  {% for post in category.last %} 
+                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                  {% endfor %}                
+                  </ul>
+              </li>
+              {% endfor %}              
             </ol>
-          </div> -->
+          </div>
 
           <div class="sidebar-module">
             <h4>其他链接</h4>
@@ -85,18 +78,9 @@
         </div><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
-
     </div><!-- /.container -->
 
     {% include footer.html %}
-
-    <!-- <footer class="blog-footer">
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer> -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

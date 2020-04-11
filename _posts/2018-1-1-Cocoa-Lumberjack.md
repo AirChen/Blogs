@@ -4,6 +4,7 @@ title:  "深入CocoaLumberjack日志系统"
 subtitle: "在iOS开发中，日志系统是很重要的一个部分，尤其是在修复代码中的bug，通常会用NSLog来将这些信息打印到XCode控制台中显示，但在日志信息较多的时候..."
 date:   2018-1-1 22:15:13 -0400
 background: '/assets/img/head/06.jpg'
+category: iOS
 ---
 
 ### 引入

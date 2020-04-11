@@ -4,6 +4,7 @@ title:  "MacOS下Hadoop环境搭建"
 subtitle: "本文介绍了在MacOS操作系统下进行Hadoop环境配置的知识..."
 date:   2017-7-22 19:21:13 -0400
 background: '/assets/img/head/03.jpg'
+category: AI
 ---
 
 ### 安装

@@ -4,6 +4,7 @@ title:  "iOS GCD知识点总结"
 subtitle: "GCD(Grand Central Dispatch)是苹果从OS X Snow Leopard 和 iOS4 开始引入的一套多线程开发的API，它是基于C语言的实现..."
 date:   2018-1-7 22:15:13 -0400
 background: '/assets/img/head/07.jpg'
+category: iOS
 ---
 
 ### 引入
