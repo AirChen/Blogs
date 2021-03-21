@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include navbar.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    {% include scripts.html %}
+
+  </body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <title>Flask Template Example</title> -->
+    <title>{{web_title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      .container {
+        max-width: 500px;
+        padding-top: 100px;
+      }
+      body {
+        font-size:12px;
+        font-family:"宋体";
+        background: url({{back_img}}) bottom center no-repeat #efeff4 ;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100%;
+      }
+      /* h2 {color: red;} */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <h2>This is part of my base template</h2> -->
+      <br>
+      {% block content %}{% endblock %}
+      <!-- <br> -->
+      <!-- <h2>This is part of my base template</h2> -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
