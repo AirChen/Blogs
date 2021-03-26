@@ -65,7 +65,7 @@ def replace_readme():
     global g_rss_datetime
     global g_rss_num
     # 读取EditREADME.md
-    with open(os.path.join(os.getcwd(),"EditREADME.md"),'r') as load_f:
+    with open(os.path.join(os.getcwd(),"daily/EditREADME.md"),'r') as load_f:
         edit_readme_lines = load_f.readlines()
         session = {}
         session['list'] = []
@@ -112,7 +112,7 @@ def main():
     session_list = replace_readme()
     bing_img = get_bing_img_url()
 
-    env = Environment(loader=FileSystemLoader('./templates'))
+    env = Environment(loader=FileSystemLoader('./daily'))
     template = env.get_template('basic.html')
     cout_html = template.render(web_title="RSS订阅", 
                 rss_num=g_rss_num, ga_rss_datetime=g_rss_datetime,
