@@ -88,11 +88,7 @@ def replace_readme():
                 g_rss_datetime = datetime.fromtimestamp(int(time.time()),pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')                
             
         if len(session['list']) > 0:
-            session_list.append(session)        
-
-    # 将新内容
-    with open(os.path.join(os.getcwd(),"README.md"),'w') as load_f:
-        load_f.write(new_edit_readme_md)
+            session_list.append(session)
     
     return session_list
 
